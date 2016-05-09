@@ -1,0 +1,41 @@
+<div class="container">
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="text-center">BurgerTime</h1>
+			<h3 class="text-center">Order up!</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-4">
+			<input id="newBurger" type="text">
+			<button type="submit">Order this burger!</button>
+		</div>		
+		<div class="col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">Ready to Eat</div>
+				<div class="panel-body">
+					<table class="table table-hover">
+						<tbody>
+							<tr>
+								<td>{{id}}</td>
+								<td>{{burger_name}}</td>
+								<td><button type="submit">Devour it!</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">Devoured</div>
+				<div class="panel-body">
+					{{devoured}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
