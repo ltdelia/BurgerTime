@@ -5,18 +5,22 @@ var app = express();
 
 // Routing
 
-var readyToEat;
-var devoured;
-
 module.exports = function(app){
 	app.get('/index', function(req, res){
-		orm.readyToEat('burgers');
-		orm.devoured('burgers');
-		res.render('index', {id: 1, burger_name: "Cheeseburger"});
+		orm.selectAll('burgers', function(burger_data){
+			res.render("index", {burger_data});
+		})
 	});	
+	
+	app.get('/api', function(req, res){
+		orm.selectAll('burgers', function(burger_data){
+			res.json(burger_data);
+		});
+	});
 
-	app.get('/api/readytoeat', function(req, res){
-		orm.readyToEat('burgers');
-		res.json(readyToEat);
+	app.post('/api', function(req, res){
+		var newBurger = req.body;
+		console.log(newBurger);
+		orm.addABurger(newBurger.burger_name);
 	})
 }

@@ -1,30 +1,18 @@
 var connection = require('./connection.js');
 
-var readyToEat;
-var devoured;
-
 var orm = {
-    readyToEat: function(tableInput) {
-        var s = 'SELECT * FROM ' + tableInput + ' WHERE devoured=false;';
+    selectAll: function(tableInput, cb) {
+        var s = 'SELECT * FROM ' + tableInput + ';';
         connection.query(s, function(err, result) {
 
             console.log(result);
 
-            readyToEat = result;
+            cb(result);
         });
     },
-    devoured: function(tableInput) {
-        var s = 'SELECT * FROM ' + tableInput + ' WHERE devoured=true;';
-        connection.query(s, function(err, result) {
-
-            console.log(result);
-
-            devoured = result;
-        });
-    },    
-    addABurger: function(a, b){
-        var s = 'INSERT INTO burgers(id, burger_name, devoured) VALUES(?, ?, false);';
-        connection.query(s, [a, b], function(err, result) {
+    addABurger: function(burger_name){
+        var s = 'INSERT INTO burgers(burger_name, devoured) VALUES(?, false);';
+        connection.query(s, [burger_name], function(err, result) {
  
             console.log(result);
         });        
@@ -38,7 +26,5 @@ var orm = {
     }
 };
 
-module.exports = readyToEat;
-module.exports = devoured;    
 module.exports = orm;
 
