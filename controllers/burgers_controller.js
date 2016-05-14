@@ -22,5 +22,11 @@ module.exports = function(app){
 		var newBurger = req.body;
 		console.log(newBurger);
 		orm.addABurger(newBurger.burger_name);
-	})
+	});
+
+	app.put('/api', function(req, res){
+		orm.eatABurger(req.body.burger_name, function(result){
+			res.redirect('/');
+		});
+	});
 }
