@@ -19,11 +19,14 @@
 					<table class="table table-hover">
 						<tbody>
 						{{#each burger_data}}
+						{{#if this.devoured}}
+						{{else}}
 							<tr>
 								<td>{{this.id}}</td>
 								<td value={{this.burger_name}}>{{this.burger_name}}</td>
 								<td><button type="submit" class="devour">Devour it!</button></td>
 							</tr>
+						{{/if}}
 						{{/each}}
 						</tbody>
 					</table>
