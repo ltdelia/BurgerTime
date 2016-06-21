@@ -124,7 +124,7 @@ When the server is initialized, `index.handlebars` is rendered. The page contain
 2. A "Ready to Eat" section, displaying burgers available to devour.
 3. A "Devoured" section, displaying the devoured burgers.
 
-The input in the first column has an `id` `newBurger`, whose value is grabbed once a user clicks the "Order this burger button!" (which has the `id` `order`). A post request  is sent to `/api`, containing the user input.  
+The input in the first column has an `id` `newBurger`, whose value is grabbed once a user clicks the "Order this burger!" button (which has the `id` `order`). A post request  is sent to `/api`, containing the user input.  
 
 The following click event is executed:
 
