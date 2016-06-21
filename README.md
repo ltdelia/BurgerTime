@@ -220,4 +220,9 @@ To initialize the server and run the application, run the following command:
 node server.js
 ```
 
+# Deployed App
+
+You can see a deployed version of BurgerTime [here](http://burger-time-100.herokuapp.com/). 
+
 Enjoy!
+
