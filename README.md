@@ -49,7 +49,8 @@ CREATE TABLE burgers(
   devoured boolean,
   date TIMESTAMP,
   PRIMARY KEY (id)
-)```
+)
+```
 
 This will create your local instance of `burgers_db`, as well as the table `burgers`. 
 
