@@ -9,7 +9,9 @@ BurgerTime is a Node app that utilizes MySQL, Express, and Handlebars. It allows
 
 To install, first clone the repo to a location on your computer. Then run:
 
-```npm install```
+```
+npm install
+```
 
 This installs the following dependencies:
 
