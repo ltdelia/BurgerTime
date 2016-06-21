@@ -3,18 +3,23 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="text-center">BurgerTime</h1>
-			<h3 class="text-center">Order up!</h3>
+			<h2 class="text-center">Order up!</h2>	
+			<p class="text-center">Welcome to our restaurant! Make sure that you have set up your database to reflect ours, so we can properly serve you. Bon appetit!</p>		
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-lg-4">
-			<input id="newBurger" type="text">
-			<button type="submit" id="order">Order this burger!</button>
+			<div class="form-group">
+				<input id="newBurger" class="form-control" placeholder="Enter a burger (ex: Cheeseburger)." type="text">
+			</div>
+			<button type="button" class=" btn btn-warning form-control" id="order"> <span class="glyphicon glyphicon-fire"></span> Order this burger!</button>
+			<img src="../static/assets/images/burger.jpeg" style="width: 100%">
 		</div>		
 		<div class="col-lg-4">
 			<div class="panel panel-default">
-				<div class="panel-heading">Ready to Eat</div>
+				<div class="panel-heading text-center"> <span class="glyphicon glyphicon-cutlery">
+				</span> Ready to Eat</div>
 				<div class="panel-body">
 					<table class="table table-hover">
 						<tbody>
@@ -24,7 +29,7 @@
 							<tr>
 								<td>{{this.id}}</td>
 								<td value={{this.burger_name}}>{{this.burger_name}}</td>
-								<td><button type="submit" class="devour">Devour it!</button></td>
+								<td><button id={{this.id}} type="submit" class="devour">Devour it!</button></td>
 							</tr>
 						{{/if}}
 						{{/each}}
@@ -35,7 +40,7 @@
 		</div>
 		<div class="col-lg-4">
 			<div class="panel panel-default">
-				<div class="panel-heading">Devoured</div>
+				<div class="panel-heading text-center"> <span class="glyphicon glyphicon-ice-lolly-tasted"></span> Devoured</div>
 				<div class="panel-body">
 					<table class="table table-hover">
 						<tbody>
@@ -51,6 +56,12 @@
 					</table>
 				</div>
 			</div>
+		</div>
+		<div>
+			<hr>
+			<a href="/api">API</a>
+			<a> | </a>
+			<a href="https://github.com/ltdelia/BurgerTime">Github Repo</a>
 		</div>
 	</div>
 </div>
@@ -73,16 +84,16 @@ $("#order").on('click', function(){
 
 $(".devour").on('click', function(){
 
-	// var burger = {burger_name: $('#name').val().trim()};
+	var burger = {id: event.target.id};
 
-	// var currentURL = window.location.origin;
+	var currentURL = window.location.origin;
 
-	// $.post(currentURL + '/api', burger)
-	// 	.done(function(data){
-	// 		console.log(data);
-	// 	})
+	$.post(currentURL + '/api', burger)
+		.done(function(data){
+			console.log(data);
+		})
 
-	// return false;
+	return false;
 })
 
 

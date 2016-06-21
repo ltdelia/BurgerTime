@@ -6,7 +6,7 @@ var app = express();
 // Routing
 
 module.exports = function(app){
-	app.get('/index', function(req, res){
+	app.get('/', function(req, res){
 		orm.selectAll('burgers', function(burger_data){
 			res.render("index", {burger_data});
 		})
@@ -19,14 +19,13 @@ module.exports = function(app){
 	});
 
 	app.post('/api', function(req, res){
-		var newBurger = req.body;
-		console.log(newBurger);
-		orm.addABurger(newBurger.burger_name);
-	});
-
-	app.put('/api', function(req, res){
-		orm.eatABurger(req.body.burger_name, function(result){
-			res.redirect('/');
-		});
+		var burger = req.body;
+		console.log(burger);
+		if(burger.burger_name){
+			orm.addABurger(burger.burger_name);
+		}
+		if(burger.id){
+			orm.eatABurger(burger.id);
+		}
 	});
 }

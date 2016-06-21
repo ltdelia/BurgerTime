@@ -17,9 +17,9 @@ var orm = {
             console.log(result);
         });        
     },
-    eatABurger: function(burger_name){
-        var s = 'UPDATE burgers SET devoured=true WHERE burger_name=?;';
-        connection.query(s, [burger_name], function(err, result) {
+    eatABurger: function(id){
+        var s = 'UPDATE burgers SET devoured=true WHERE id=?;';
+        connection.query(s, [id], function(err, result) {
  
             console.log(result);
         });        
